@@ -1,3 +1,5 @@
+#this code has been inspired by https://github.com/JohannesJolkkonen/funktio-ai-samples/blob/main/knowledge-graph-demo/main.py
+
 import streamlit as st
 from streamlit_chat import message
 from timeit import default_timer as timer
@@ -20,7 +22,7 @@ dotenv.load_dotenv()
 llm = ChatOpenAI(
     model="gpt-4o-mini",                
     temperature=0,                
-    #max_tokens=1500,
+    max_tokens=1500,
     openai_api_key=os.getenv("OPENAI_API_KEY")
 )
 
