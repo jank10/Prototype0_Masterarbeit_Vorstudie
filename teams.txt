@@ -1,0 +1,6 @@
+CREATE (team1:Team {id: 1, name: "Sales", department_head: "Michael Adams"});
+CREATE (team2:Team {id: 2, name: "Accounting", department_head: "Linda Chen"});
+CREATE (team3:Team {id: 3, name: "Account Management", department_head: "Raj Patel"});
+CREATE (team4:Team {id: 4, name: "Legal", department_head: "Samantha Green"});
+CREATE (team5:Team {id: 5, name: "Marketing", department_head: "Chris Taylor"});
+CREATE (team6:Team {id: 6, name: "IT", department_head: "Nina Williams"});
