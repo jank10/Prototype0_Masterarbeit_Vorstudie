@@ -95,14 +95,23 @@ To enhance the graph with insights:
    - Access the application at: ```http://localhost:8501```.
    - Enable ```Debug Mode``` in the UI to observe internal processes.
 3. **Interact with the Prototype**:
-   Use the search bar to explore the fictional company. Example queries:
+   Use the search bar to explore the fictional company.
+
+   -**Important note**: If you want to ask a follow-up question to your current query you can simply enter a new question. If you want to ask a new question on the other hand, you have to click the ```Reset``` button first.
+
+   Example queries:
    - Who can help me with budgeting?
    - Who can help me onboard a new customer?
    - Who does George Harris report to and which team does he belong to?
    - Who has experience with planning events?
-4. **Stop the Application**:
+
+   Example follow-up questions:
+   - Who is his/her boss?
+   - What projects does Tom work on?
+   
+5. **Stop the Application**:
    - Close the terminal or press ```Ctrl+C``` to stop the Streamlit service.
-5. Stop the Neo4j Container:
+6. Stop the Neo4j Container:
    - Run the following command:
      ```docker-compose down```
    - A data folder will be created in your project directory. This ensures your graph data persists. Restart Neo4j later with:
