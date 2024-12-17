@@ -13,6 +13,7 @@ Below, you'll find all the necessary background information and steps to set up 
 2. [Setup Neo4j](#setup-neo4j)
 3. [Enrich Knowledge Graph with Insights](#enrich-knowledge-graph-with-insights)
 4. [Test the Prototype](#test-the-prototype)
+5. [References](#references)
 
 ---
 
@@ -48,7 +49,7 @@ Before starting, ensure you complete the following steps:
    Execute the ```docker-compose.yaml``` file to start a containerized Neo4j instance:
    ```docker-compose up```
 3. **Access the Neo4j browser at**:
-```http://localhost:7474/browser```.
+```http://localhost:7474/browser```. Use the login details from your .env file to log in to Neo4j.
 The database will initially be empty.
 4. **Populate the Knowledge Graph**:
 Open and run the Jupyter Notebook: ```0_knowledge_graph_construction.ipynb```.
@@ -76,6 +77,11 @@ To enhance the graph with insights:
 1. Run the following Jupyter Notebooks:
   - ```1_profile_extraction.ipynb```
   - ```2_feature_extraction.ipynb```
+  - There is a known error which has occured on a test device:
+    ```
+    TransientError: {code: Neo.TransientError.General.MemoryPoolOutOfMemoryError} {message: The allocation of an extra 2.0 MiB would use more than the limit 688.8 MiB. Currently using 687.3 MiB. dbms.memory.transaction.total.max threshold reached}
+    ```
+    It could be resolved by deleting resetting the neo4j instance. This means deleting the docker image as well as the folder called "data" which is created in the working directory when running the ```docker-compose up``` command for the first time.
 2. These notebooks perform the following tasks:
   - Profile Extraction: An LLM generates a profile summary for each person based on their connected nodes and saves it as a property of the person node.
   - Feature Extraction: Skills and project involvement are extracted and stored as new nodes (```:Skill``` and ```:Project```) connected to the person nodes via ```HAS_SKILL``` and ```WORKS_ON``` relationships.
@@ -101,3 +107,13 @@ To enhance the graph with insights:
      ```docker-compose down```
    - A data folder will be created in your project directory. This ensures your graph data persists. Restart Neo4j later with:
      ```docker-compose up```
+
+---
+
+## References
+
+Prototype0 has taken inspiration from three GitHub repositories.
+
+- Docker setup of neo4j: [GraphRAG-with-Llama-3.1](https://github.com/Coding-Crashkurse/GraphRAG-with-Llama-3.1)
+- Conceptual idea of using a dummy company and the basis of the streamlit web app: [Knowledge-Graph-Demo](https://github.com/JohannesJolkkonen/funktio-ai-samples/tree/main/knowledge-graph-demo)
+- Conceptual idea of using the hybrid search in Neo4j and rephrasing follow-up questions: [Intro-to-GraphRAG](https://github.com/ms-johnalex/intro-to-graphrag/tree/main)
