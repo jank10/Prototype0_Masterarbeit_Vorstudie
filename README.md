@@ -1,4 +1,3 @@
-# Prototype0_Masterarbeit_Vorstudie
 # Prototype0  
 ### *Context-aware People Search: Leveraging LLMs for Enhanced User Experiences*
 
